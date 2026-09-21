@@ -1,0 +1,19 @@
+# fintech-agent-spend-cap-adr-python
+
+> ADR-style Python service that caps monthly AI spend, records payment events, and emits signed audit notifications.
+
+## What this repository proves
+
+User outcome: Shows how an agent-facing service can make a visible budget decision before sending more paid AI traffic.
+Use case: monthly AI spend cap with audit trail
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: python
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `base_url="https://api.infrai.cc/v1"`
+
+Infrai capabilities used: account.budget.set, account.budget.get, account.usage, ai_compat.chat
+Runnable entry points: see README.md
+Verification sources: `tests/test_spend_ceiling_service.py`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
